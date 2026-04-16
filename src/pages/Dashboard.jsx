@@ -1,35 +1,20 @@
 import React, { useState, useEffect } from "react";
 import image from "../assets/download.png";
-// import { getStyles } from "../components/Dashboard.styles";
+import keyfeature from "../assets/keyfeature.png";
+import laptop1 from "../assets/laptop1.png";
+import laptop2 from "../assets/laptop2.png";
+import phone from "../assets/phone.png";
+import appstore from "../assets/appstore.png";
+import playstore from "../assets/playstore.png";
+import sidephone from "../assets/sidephone.png";
 
 const Dashboard = () => {
-  // const [isMobile, setIsMobile] = useState(false);
-
-  // useEffect(() => {
-  //   const check = () => setIsMobile(window.innerWidth < 768);
-  //   check();
-  //   window.addEventListener("resize", check);
-  //   return () => window.removeEventListener("resize", check);
-  // }, []);
-
-  // const styles = getStyles(isMobile);
-
-  // const layout = {
-  //   section: {
-  //     padding: isMobile ? "60px 20px" : "100px 20px",
-  //   },
-  //   container: {
-  //     maxWidth: "1320px",
-  //     margin: "0 auto",
-  //     width: "100%",
-  //   },
-  // };
 
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
       {/* ================= NAVBAR ================= */}
       <nav className="w-full h-[95px] flex items-center justify-center bg-white shadow-sm sticky top-0 z-50">
-        <div className="w-full max-w-[1320px] flex items-center justify-between px-5">
+        <div className="w-full max-w-[1320px] px-[20px] flex items-center justify-between px-0">
 
           {/* LOGO */}
           <h2 className="text-[#2F6FED] font-semibold text-[22px] tracking-wide">
@@ -58,11 +43,11 @@ const Dashboard = () => {
       </nav>
       {/* ================= HERO ================= */}
       <section className="w-full flex justify-center">
-        <div className="w-full max-w-[1320px] flex flex-col md:flex-row items-center justify-between px-5 py-[80px] gap-[40px] md:gap-[100px]">
+        <div className="w-full max-w-[1320px] h-[695px] flex items-center justify-between gap-[100px]">
 
-          {/* LEFT TEXT */}
-          <div className="max-w-[500px] text-center md:text-left">
-            <h1 className="text-[32px] md:text-[42px] leading-[1.3] mb-5">
+          {/* LEFT */}
+          <div className="w-[500px]">
+            <h1 className="text-[48px] leading-[60px] mb-[20px]">
               Lorem ipsum{" "}
               <span className="text-[#2F6FED]">
                 dolor sit amet consectetur
@@ -70,39 +55,33 @@ const Dashboard = () => {
               . Sed Lorem malesuada pellentesque id
             </h1>
 
-            <p className="text-gray-600 mb-5 text-[16px] md:text-[18px] leading-[1.6]">
-              Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et
-              viverra nulla Ut vivamus purus nunc integer quis. Habitant elit sapien
-              vestibulum risus vitae donec blandit vel nisi.
+            <p className="text-[18px] text-gray-600 leading-[28px] mb-[20px]">
+              Lorem ipsum dolor sit amet consectetur...
             </p>
 
-            <button className="w-[140px] h-[48px] bg-[#2F6FED] text-white rounded-[8px] text-[14px] font-medium">
+            <button className="w-[140px] h-[48px] bg-[#2F6FED] text-white rounded-[8px]">
               Get in Touch
             </button>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="w-full md:w-[820px] flex justify-center">
-            <img
-              src={image}
-              alt="Hero"
-              className="w-full max-w-[820px] h-auto"
-            />
+          {/* RIGHT */}
+          <div className="w-[820px] h-[687px] flex items-center justify-center">
+            <img src={laptop1} className="w-full h-full object-contain" />
           </div>
 
         </div>
       </section>
       {/* ================= STATS ================= */}
-      <section className="w-full flex justify-center mt-[60px]">
-        <div className="w-full max-w-[1320px] px-5">
+      <section className="w-full flex justify-center mt-[100px]">
+        <div className="w-full max-w-[1320px] px-0">
 
           {/* BLUE CARD */}
-          <div className="bg-[#eaf1fb] rounded-[16px] py-[40px] px-[20px] md:px-[60px] flex flex-wrap md:flex-nowrap justify-between items-center gap-[30px] text-center">
+          <div className="bg-[#eaf1fb] rounded-[16px] h-[239px] px-[20px] md:px-[60px] flex flex-wrap md:flex-nowrap justify-between items-center gap-[30px] text-center">
 
             {/* ITEM */}
             {[1, 2, 3, 4].map((item) => (
               <div key={item} className="flex-1 min-w-[140px]">
-                <h2 className="text-[#2F6FED] text-[28px] md:text-[36px] font-semibold">
+                <h2 className="text-[#2F6FED] text-[48px] md:text-[36px] font-semibold">
                   15+
                 </h2>
                 <p className="text-[14px] md:text-[16px] text-gray-600 mt-1">
@@ -118,7 +97,7 @@ const Dashboard = () => {
 
       {/* ================= BIG CARD SECTION ================= */}
       <section className="w-full flex justify-center mt-[100px]">
-        <div className="w-full max-w-[1320px] px-5">
+        <div className="w-full max-w-[1320px] px-0">
 
           {/* BIG CARD */}
           <div className="bg-[#f3f6f9] rounded-[20px] py-[60px] px-[20px] md:px-[40px] text-center">
@@ -138,9 +117,9 @@ const Dashboard = () => {
             {/* IMAGE */}
             <div className="flex justify-center mb-[40px]">
               <img
-                src={image}
+                src={laptop2}
                 alt="Big Feature"
-                className="w-full max-w-[900px] md:max-w-[1119px] h-auto"
+                className="w-full max-w-[900px] md:w-[1119px] h-[706px]"
               />
             </div>
 
@@ -150,7 +129,7 @@ const Dashboard = () => {
               {[1, 2, 3, 4].map((item) => (
                 <div
                   key={item}
-                  className="bg-white rounded-[16px] w-[220px] md:w-[247px] p-[20px] shadow-sm"
+                  className="bg-white rounded-[16px] w-[247px] h-[182px] md:w-[247px] p-[20px] shadow-sm"
                 >
                   {/* ICON */}
                   <div className="w-[45px] h-[45px] mx-auto mb-[12px] flex items-center justify-center bg-[#eaf1fb] rounded-[10px]">
@@ -179,19 +158,19 @@ const Dashboard = () => {
       </section>
       {/* ================= KEY FEATURES ================= */}
       <section className="w-full flex justify-center mt-[100px] mb-[100px]">
-        <div className="w-full max-w-[1320px] px-5 text-center">
+        <div className="w-full max-w-[1320px] h-[789px] flex flex-col items-center justify-center text-center">
 
           {/* TITLE */}
-          <h2 className="text-[24px] md:text-[32px] font-semibold mb-[40px]">
+          <h2 className="text-[32px] font-semibold mb-[60px]">
             Key Features
           </h2>
 
           {/* IMAGE */}
-          <div className="flex justify-center">
+          <div className="flex justify-center items-center">
             <img
-              src={image}
+              src={keyfeature}
               alt="Key Features"
-              className="w-full max-w-[350px] md:max-w-[420px] h-auto"
+              className="w-[1000px] md:w-[900px] max-w-full object-contain"
             />
           </div>
 
@@ -200,14 +179,14 @@ const Dashboard = () => {
 
       {/* ================= SHOWCASE 1 ================= */}
       <section className="w-full flex justify-center bg-[#f3f6f9] mt-[100px]">
-        <div className="w-full max-w-[1320px] px-5 py-[80px] flex flex-col md:flex-row items-center justify-between gap-[60px] md:gap-[100px]">
+        <div className="w-full max-w-[1320px] px-0 h-[642px] flex flex-col md:flex-row items-center justify-between gap-[60px] md:gap-[100px]">
 
           {/* IMAGE LEFT */}
           <div className="w-full md:w-[708px] flex justify-center">
             <img
-              src={image}
+              src={sidephone}
               alt="Dashboard UI"
-              className="w-full max-w-[708px] h-auto"
+              className="w-[708px] h-[434px] object-contain"
             />
           </div>
 
@@ -257,7 +236,7 @@ const Dashboard = () => {
 
       {/* ================= SHOWCASE 2 ================= */}
       <section className="w-full flex justify-center mt-[100px]">
-        <div className="w-full max-w-[1320px] px-5 py-[80px] flex flex-col md:flex-row items-center justify-between gap-[60px] md:gap-[100px]">
+        <div className="w-full max-w-[1320px] px-0 py-[80px] flex flex-col md:flex-row items-center justify-between gap-[60px] md:gap-[100px]">
 
           {/* TEXT LEFT */}
           <div className="w-full md:max-w-[701px]">
@@ -280,7 +259,7 @@ const Dashboard = () => {
               {[1, 2, 3, 4, 5, 6].map((item) => (
                 <div
                   key={item}
-                  className="bg-white rounded-[12px] p-[16px] text-center shadow-sm"
+                  className="bg-white rounded-[12px] w-[175px] h-[148px] text-center shadow-sm"
                 >
                   {/* ICON */}
                   <div className="w-[40px] h-[40px] mx-auto mb-[10px] flex items-center justify-center bg-[#eaf1fb] rounded-[8px]">
@@ -303,7 +282,7 @@ const Dashboard = () => {
           {/* IMAGE RIGHT */}
           <div className="w-full md:w-[702px] flex justify-center">
             <img
-              src={image}
+              src={phone}
               alt="Mobile UI"
               className="w-full max-w-[702px] h-auto"
             />
@@ -314,10 +293,10 @@ const Dashboard = () => {
 
       {/* ================= CTA ================= */}
       <section className="w-full flex justify-center mt-[100px] mb-[100px]">
-        <div className="w-full max-w-[1320px] px-5">
+        <div className="w-full max-w-[1320px] px-0">
 
           {/* BLUE BOX */}
-          <div className="bg-gradient-to-r from-[#2F6FED] to-[#4A8BFF] rounded-[20px] px-[20px] md:px-[40px] py-[30px] md:py-[40px] flex flex-col md:flex-row items-center justify-between gap-[30px]">
+          <div className="bg-gradient-to-r from-[#2F6FED] to-[#4A8BFF] rounded-[20px] px-[20px] md:px-[40px] py-[30px] md:h-[261px] flex flex-col md:flex-row items-center justify-between gap-[30px]">
 
             {/* IMAGE */}
             <div className="flex justify-center">
@@ -336,7 +315,7 @@ const Dashboard = () => {
             </div>
 
             {/* BUTTON */}
-            <button className="w-[152px] h-[54px] bg-white text-[#2F6FED] rounded-[10px] text-[14px] font-medium">
+            <button className="w-[152px] h-[54px] bg-white text-[#2F6FED] rounded-[8px] text-[14px] font-medium">
               Schedule a Call
             </button>
 
@@ -347,10 +326,10 @@ const Dashboard = () => {
 
       {/* ================= FOOTER ================= */}
       <footer className="w-full flex justify-center mt-[100px]">
-        <div className="w-full max-w-[1320px] px-5 text-center">
+        <div className="w-full max-w-[1320px] px-0 text-center">
 
           {/* TITLE */}
-          <h2 className="text-[24px] md:text-[32px] font-semibold mb-[10px]">
+          <h2 className="text-[24px] md:text-[28px] leading-[36px] font-semibold mb-[10px]">
             Your <span className="text-[#2F6FED]">Perfect Experience</span>, Just a Tap Away!
           </h2>
 
@@ -362,12 +341,12 @@ const Dashboard = () => {
           {/* STORE BUTTONS */}
           <div className="flex justify-center gap-[20px] flex-wrap mb-[40px]">
             <img
-              src={image}
+              src={playstore}
               alt="Google Play"
               className="w-[140px] cursor-pointer"
             />
             <img
-              src={image}
+              src={appstore}
               alt="App Store"
               className="w-[140px] cursor-pointer"
             />
@@ -378,7 +357,7 @@ const Dashboard = () => {
 
       {/* ================= BOTTOM STRIP ================= */}
       <div className="w-full border-t border-gray-200 flex justify-center">
-        <div className="w-full max-w-[1320px] px-5 py-[15px] flex flex-col md:flex-row items-center justify-between gap-[10px] text-[14px] text-gray-500">
+        <div className="w-full max-w-[1320px] px-0 py-[15px] flex flex-col md:flex-row items-center justify-between gap-[10px] text-[14px] text-gray-500">
 
           {/* LEFT TEXT */}
           <div>
