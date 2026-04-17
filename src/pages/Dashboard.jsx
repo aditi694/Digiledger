@@ -122,115 +122,159 @@ const Dashboard = () => {
       </section>
 
       {/* ================= KEY FEATURES ================= */}
-<section className="w-full flex justify-center mt-[100px]">
-  <div className="w-[1320px] h-[789px] flex flex-col items-center justify-center relative">
+      <section className="w-full flex justify-center mt-[100px]">
+        <div className="w-[1320px] h-[789px] flex flex-col items-center justify-center relative">
 
-    {/* IMAGE */}
-    <img
-      src={keyfeature}
-      className="w-[1119px] h-[706px] object-contain"
-    />
+          {/* IMAGE */}
+          <img
+            src={keyfeature}
+            className="w-[1119px] h-[706px] object-contain"
+          />
 
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* ================= SHOWCASE 1 ================= */}
-      <section className="w-full flex justify-center bg-[#f3f6f9] py-[100px]">
-        <div className="w-full max-w-[1320px] px-5 md:px-0 flex flex-col md:flex-row items-center gap-[60px] md:gap-[100px]">
-          {/* IMAGE */}
-          <div className="flex justify-center md:w-[708px]">
-            <img
-              src={sidephone}
-              alt="Dashboard UI"
-              className="w-full max-w-[708px] h-auto object-contain"
-            />
-          </div>
+      <section className="w-full flex justify-center py-[100px]">
+        <div className="w-[1320px] h-[642px] bg-[#f3f6f9] flex items-center justify-center">
+          <div className="w-[1257px] h-[434px] flex items-center justify-between">
 
-          {/* TEXT */}
-          <div className="w-full md:max-w-[521px]">
-            <h2 className="text-[32px] leading-[1.3] font-semibold mb-6">
-              Lorem ipsum <span className="text-[#2F6FED]">Lorem ipsum</span> dolor Lorem ipsum dolor
-            </h2>
-            <p className="text-gray-600 text-[16px] leading-relaxed mb-8">
-              Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis. Habitant elit sapien vestibulum risus vitae donec blandit vel nisi.
-            </p>
-
-            <div className="flex flex-wrap gap-5">
-              {[1, 2, 3].map((_, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-[12px] w-[130px] p-4 text-center shadow-sm"
-                >
-                  <div className="w-10 h-10 mx-auto mb-3 bg-[#eaf1fb] rounded-[8px] flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[#2F6FED]">folder_supervised</span>
-                  </div>
-                  <p className="text-[13px] text-gray-700">Lorem ipsum</p>
-                </div>
-              ))}
+            {/* IMAGE */}
+            <div className="w-[708px] h-[434px] flex justify-center">
+              <img
+                src={sidephone}
+                alt="Dashboard UI"
+                className="w-[708px] h-[434px] object-contain"
+              />
             </div>
+
+            {/* TEXT */}
+            <div className="w-[521px] h-[417px] flex flex-col justify-between">
+
+              <div>
+                <h2 className="w-[521px] text-[32px] leading-[1.3] font-semibold mb-[16px]">
+                  Lorem ipsum <span className="text-[#2F6FED]">Lorem ipsum</span> dolor Lorem ipsum dolor
+                </h2>
+
+                <p className="w-[512px] text-gray-600 text-[16px] leading-relaxed mb-[24px]">
+                  Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis. Habitant elit sapien vestibulum risus vitae donec blandit vel nisi.
+                </p>
+              </div>
+
+              {/* CARDS */}
+              <div className="w-[496px] h-[134px] flex gap-[20px]">
+                {[1, 2, 3].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-[130px] h-[134px] bg-white rounded-[12px] p-[16px] text-center shadow-sm"
+                  >
+                    <div className="w-[40px] h-[40px] mx-auto mb-[12px] bg-[#eaf1fb] rounded-[8px] flex items-center justify-center">
+                      <span className="material-symbols-outlined text-[#2F6FED]">
+                        folder_supervised
+                      </span>
+                    </div>
+                    <p className="text-[13px] text-gray-700">Lorem ipsum</p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* ================= SHOWCASE 2 ================= */}
       <section className="w-full flex justify-center mt-[100px]">
-        <div className="w-full max-w-[1320px] px-5 md:px-0 py-[80px] flex flex-col md:flex-row items-center gap-[60px] md:gap-[100px]">
-          {/* TEXT LEFT */}
-          <div className="w-full md:max-w-[701px]">
-            <h2 className="text-[32px] font-semibold mb-6 leading-tight">
-              Lorem ipsum <span className="text-[#2F6FED]">Lorem ipsum</span> dolor
-            </h2>
-            <p className="text-gray-600 text-[16px] leading-relaxed mb-10">
-              Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
-            </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-              {[1, 2, 3, 4, 5, 6].map((_, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-[12px] h-[148px] flex flex-col items-center justify-center shadow-sm"
-                >
-                  <div className="w-10 h-10 mb-3 bg-[#eaf1fb] rounded-[8px] flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[#2F6FED]">folder_supervised</span>
+        <div className="w-[1320px] h-[787px] flex items-center justify-between">
+
+          {/* TEXT LEFT */}
+          <div className="w-[701px] h-[626px] flex flex-col justify-between">
+
+            <div className="w-[701px] h-[536px]">
+
+              {/* TITLE */}
+              <h2 className="w-[701px] text-[32px] font-semibold leading-[1.3] mb-[16px]">
+                Lorem ipsum <span className="text-[#2F6FED]">Lorem ipsum</span> dolor
+              </h2>
+
+              {/* PARA */}
+              <p className="w-[701px] text-gray-600 text-[16px] leading-[1.8] mb-[32px]">
+                Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
+              </p>
+
+              {/* CARDS */}
+              <div className="w-[582px] h-[324px] grid grid-cols-3 gap-[20px]">
+
+                {[1, 2, 3, 4, 5, 6].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-[175px] h-[148px] bg-white rounded-[12px] flex flex-col items-center justify-center shadow-sm"
+                  >
+                    <div className="w-[54px] h-[54px] mb-[12px] bg-[#eaf1fb] rounded-[8px] flex items-center justify-center">
+                      <span className="material-symbols-outlined text-[#2F6FED]">
+                        folder_supervised
+                      </span>
+                    </div>
+
+                    <p className="w-[151px] text-[13px] text-gray-700 text-center">
+                      Lorem ipsum
+                    </p>
                   </div>
-                  <p className="text-[13px] text-gray-700">Lorem ipsum</p>
-                </div>
-              ))}
+                ))}
+
+              </div>
+
             </div>
+
           </div>
 
           {/* IMAGE RIGHT */}
-          <div className="flex justify-center md:w-[702px]">
+          <div className="w-[702px] h-[787px] flex justify-center">
             <img
               src={phone}
               alt="Mobile App"
-              className="w-full max-w-[702px] object-contain"
+              className="w-[702px] h-[787px] object-contain"
             />
           </div>
+
         </div>
+
       </section>
 
       {/* ================= CTA SECTION ================= */}
       <section className="w-full flex justify-center mt-[100px]">
-        <div className="w-full max-w-[1320px] px-5 md:px-0">
-          <div className="bg-gradient-to-r from-[#2F6FED] to-[#4A8BFF] rounded-[20px] px-8 md:px-10 py-10 md:py-0 md:h-[261px] flex flex-col md:flex-row items-center justify-between gap-8">
-            <img
-              src={image}
-              alt="Expert"
-              className="w-[120px] md:w-[143px] h-auto"
-            />
 
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-white text-[24px] font-semibold leading-tight">
+        <div className="w-[1320px] h-[261px] flex items-center">
+
+          <div className="w-[1320px] h-[261px] bg-gradient-to-r from-[#2F6FED] to-[#4A8BFF] rounded-[24px] px-[48px] flex items-center justify-between">
+
+            {/* IMAGE */}
+            <div className="w-[143px] h-[165px] flex items-center justify-center">
+              <img
+                src={image}
+                alt="Expert"
+                className="w-[143px] h-[165px] object-contain"
+              />
+            </div>
+
+            {/* TEXT */}
+            <div className="flex-1 mx-[48px]">
+              <h3 className="text-white text-[40px] font-medium leading-[1]">
                 Get your application developed by our certified experts today!
               </h3>
             </div>
 
-            <button className="w-[152px] h-[54px] bg-white text-[#2F6FED] rounded-[8px] text-sm font-medium hover:bg-gray-100 transition whitespace-nowrap">
+            {/* BUTTON */}
+            <button className="w-[152px] h-[54px] bg-white text-[#2F6FED] rounded-[8px] text-[14px] font-medium flex items-center justify-center">
               Schedule a Call
             </button>
+
           </div>
+
         </div>
+
       </section>
 
       {/* ================= FOOTER ================= */}
