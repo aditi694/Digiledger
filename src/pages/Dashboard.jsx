@@ -184,23 +184,38 @@ const Dashboard = () => {
           />
 
           <div className="w-full xl:w-[1138px] flex flex-wrap xl:flex-nowrap justify-center gap-[20px]">
-
             {[1, 2, 3, 4].map((_, i) => (
               <div
                 key={i}
-                className="w-[247px] min-h-[182px] bg-white-custom rounded-[18px] p-[20px] shadow-soft flex flex-col items-center text-center"
+                className="w-[247px] h-[182.75px] bg-white-custom rounded-[18px] p-[16px] flex flex-col items-center text-center gap-[16.8px]"
+                style={{
+                  boxShadow: "0px 4px 30px rgba(0,0,0,0.1)"
+                }}
               >
-                <div className="w-[44px] h-[44px] bg-[#eaf1fb] rounded-[10px] flex items-center justify-center mb-[12px]">
-                  <span className="material-symbols-outlined text-primary text-[22px]">
+
+                {/* ICON */}
+                <div className="w-[42.08px] h-[42.08px] bg-[#1D61E71A] rounded-[10px] flex items-center justify-center">
+                  <span
+                    className="material-symbols-outlined text-[#1D61E7]"
+                    style={{
+                      fontSize: "30px",
+                      lineHeight: "30px"
+                    }}
+                  >
                     folder_supervised
                   </span>
                 </div>
-                <h3 className="text-primary text-[16px] mb-[6px]">
-                  Lorem ipsum
+
+                {/* TITLE */}
+                <h3 className="w-[180px] text-[20px] font-semibold leading-[32px] text-primary">
+                  Lorem ipsum dolor
                 </h3>
-                <p className="text-[13px] text-muted">
-                  viverra nulla Ut vivamus purus nunc integer quis.
+
+                {/* TEXT */}
+                <p className="w-[215px] text-[14px] leading-[20px] text-muted">
+                  Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolo fg
                 </p>
+
               </div>
             ))}
 
@@ -260,11 +275,19 @@ const Dashboard = () => {
                   {[1, 2, 3].map((_, i) => (
                     <div
                       key={i}
-                      className="w-[130px] h-[134px] bg-white-custom rounded-[12px] p-[16px] flex flex-col items-center justify-center 
-                shadow-soft"
+                      className="w-[158px] h-[134px] bg-white-custom rounded-[11.7px] p-[9px] flex flex-col items-center justify-center gap-[10.9px]"
+                      style={{
+                        boxShadow: "0px 3.6px 27px rgba(0,0,0,0.1)"
+                      }}
                     >
-                      <div className="w-[40px] h-[40px] mb-[12px] bg-[#eaf1fb] rounded-[8px] flex items-center justify-center">
-                        <span className="material-symbols-outlined text-primary text-[20px]">
+                      <div className="w-[48.6px] h-[48.6px] bg-[#1D61E71A] rounded-[10px] flex items-center justify-center">
+                        <span
+                          className="material-symbols-outlined text-[#1D61E7]"
+                          style={{
+                            fontSize: "34px",
+                            lineHeight: "34px"
+                          }}
+                        >
                           folder_supervised
                         </span>
                       </div>
@@ -306,10 +329,19 @@ const Dashboard = () => {
                 {[1, 2, 3, 4, 5, 6].map((_, i) => (
                   <div
                     key={i}
-                    className="w-full xl:w-[175px] h-[148px] bg-white-custom rounded-[12px] flex flex-col items-center justify-center shadow-soft"
+                    className="w-[176px] h-[149px] bg-white-custom rounded-[13px] flex flex-col items-center justify-center gap-[12px] p-[12px]"
+                    style={{
+                      boxShadow: "0px 4px 30px rgba(0,0,0,0.1)"
+                    }}
                   >
-                    <div className="w-[54px] h-[54px] mb-[12px] bg-[#eaf1fb] rounded-[8px] flex items-center justify-center">
-                      <span className="material-symbols-outlined text-primary text-[22px]">
+                    <div className="w-[54px] h-[54px] bg-[#1D61E71A] rounded-[12px] flex items-center justify-center">
+                      <span
+                        className="material-symbols-outlined text-[#1D61E7]"
+                        style={{
+                          fontSize: "29px",
+                          lineHeight: "29px"
+                        }}
+                      >
                         folder_supervised
                       </span>
                     </div>
@@ -344,8 +376,9 @@ const Dashboard = () => {
         <div className="w-full xl:w-[1320px] px-4 xl:px-0">
           <div className="relative overflow-hidden bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-light)] rounded-[24px] xl:h-[261px] flex flex-col xl:flex-row items-center justify-between px-[48px] py-[32px]">
 
+            {/* LEFT GRID */}
             <div
-              className="absolute left-[-180px] top-1/2 -translate-y-1/2 w-[489px] h-[451px] opacity-100"
+              className="absolute left-[-180px] top-1/2 -translate-y-1/2 w-[489px] h-[451px] opacity-100 z-0"
               style={{
                 transform: "translateY(-50%) rotate(-110.63deg)",
                 backgroundImage:
@@ -354,8 +387,9 @@ const Dashboard = () => {
               }}
             />
 
+            {/* RIGHT GRID */}
             <div
-              className="absolute right-[-180px] top-1/2 -translate-y-1/2 w-[489px] h-[451px] opacity-100"
+              className="absolute right-[-180px] top-1/2 -translate-y-1/2 w-[489px] h-[451px] opacity-100 z-0"
               style={{
                 transform: "translateY(-50%) rotate(-69.37deg)",
                 backgroundImage:
@@ -364,24 +398,29 @@ const Dashboard = () => {
               }}
             />
 
-            <div className="relative w-[173px] h-[173px] flex items-center justify-center">
-              <img
-                src={cta_background}
-                className="absolute w-[171px] h-[173px] object-contain"
-              />
-              <img
-                src={cta}
-                className="relative w-[143px] h-[165px] object-contain z-10"
-              />
+            {/* CONTENT WRAPPER */}
+            <div className="relative z-10 w-full flex flex-col xl:flex-row items-center justify-between gap-[40px]">
+
+              <div className="relative w-[173px] h-[173px] flex items-center justify-center">
+                <img
+                  src={cta_background}
+                  className="absolute w-[171px] h-[173px] object-contain"
+                />
+                <img
+                  src={cta}
+                  className="relative w-[143px] h-[165px] object-contain z-10"
+                />
+              </div>
+
+              <h3 className="w-full xl:max-w-[849px] text-white text-[40px] leading-[48px] font-medium text-center xl:text-left">
+                Get your application developed by our certified experts today!
+              </h3>
+
+              <button className="h-[54px] px-[28px] rounded-[8px] bg-white-custom text-primary font-medium relative z-10">
+                Schedule a Call
+              </button>
+
             </div>
-
-            <h3 className="w-full xl:max-w-[849px] text-white text-[40px] leading-[48px] font-medium text-center xl:text-left">
-              Get your application developed by our certified experts today!
-            </h3>
-
-            <button className="h-[54px] px-[28px] rounded-[8px] bg-white-custom text-primary font-medium">
-              Schedule a Call
-            </button>
 
           </div>
         </div>
