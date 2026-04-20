@@ -1,7 +1,6 @@
 import React from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import image from "../assets/download.png";
 import keyfeature from "../assets/keyfeature.png";
 import laptop1 from "../assets/laptop1.png";
 import laptop2 from "../assets/laptop2.png";
@@ -10,7 +9,11 @@ import sidephone from "../assets/sidephone.png";
 import appstore from "../assets/appstore.png";
 import playstore from "../assets/playstore.png";
 import phone1 from "../assets/phone1.png";
-import keyfeature1 from "../assets/keyfeature1.png"
+import keyfeature1 from "../assets/keyfeature1.png";
+import cta from "../assets/cta.png";
+import cta_background from "../assets/cta_back.png";
+import logo from "../assets/logo.png";
+import search from "../assets/search.png";
 
 const Dashboard = () => {
   const [showFeature, setShowFeature] = React.useState(false);
@@ -28,15 +31,17 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-x-hidden bg-white-custom-custom font-sans text-main">
+    <div className="w-full overflow-x-hidden bg-white-custom font-sans text-main">
 
       {/* ================= NAVBAR ================= */}
       <nav className="w-full h-[95px] flex items-center justify-center border-b border-gray-100 sticky top-0 bg-white-custom z-50">
         <div className="w-full xl:w-[1320px] px-4 xl:px-0 flex items-center justify-between">
 
-          <h2 className="text-primary font-semibold text-[22px]">
-            DigiLedger
-          </h2>
+          <img
+            src={logo}
+            alt="DigiLedger"
+            className="w-[105px] h-[29px] object-contain"
+          />
 
           <ul className="hidden lg:flex gap-[48px] text-[16px] text-muted">
             <li className="cursor-pointer">Dummy Text</li>
@@ -47,7 +52,11 @@ const Dashboard = () => {
           </ul>
 
           <div className="flex items-center gap-[20px]">
-            <span className="text-[20px] text-muted cursor-pointer">🔍</span>
+            <img
+              src={search}
+              alt="Search"
+              className="w-[19.14px] h-[19.14px] object-contain cursor-pointer"
+            />
             <button className="h-[35px] px-[16px] rounded-[6px] text-white text-[14px] font-medium flex items-center justify-center bg-primary">
               Get in Touch
             </button>
@@ -193,13 +202,10 @@ const Dashboard = () => {
       < section className="flex justify-center mt-[120px]" >
         <div className="w-full xl:w-[1320px] px-4 xl:px-0">
 
-          {/* OUTER BOX */}
           <div className="bg-light rounded-[24px] xl:h-[642px] flex items-center justify-center">
 
-            {/* INNER CONTENT*/}
             <div className="w-full xl:w-[1257px] xl:h-[434px] flex flex-col xl:flex-row items-center justify-between gap-[60px]">
 
-              {/* IMAGE */}
               <div className="w-full xl:w-[708px] xl:h-[434px] flex justify-center">
                 <img
                   src={sidephone}
@@ -208,10 +214,8 @@ const Dashboard = () => {
                 />
               </div>
 
-              {/* TEXT BLOCK */}
               <div className="w-full xl:w-[521px] xl:h-[417px] flex flex-col justify-between">
 
-                {/* TEXT */}
                 <div>
                   <h2 className="xl:w-[521px] text-[32px] leading-[40px] font-semibold mb-[16px]">
                     Lorem ipsum{" "}
@@ -223,7 +227,6 @@ const Dashboard = () => {
                   </p>
                 </div>
 
-                {/* CARDS */}
                 <div className="w-full xl:w-[496px] xl:h-[134px] flex gap-[20px] justify-center xl:justify-start">
 
                   {[1, 2, 3].map((_, i) => (
@@ -232,14 +235,12 @@ const Dashboard = () => {
                       className="w-[130px] h-[134px] bg-white-custom rounded-[12px] p-[16px] flex flex-col items-center justify-center 
                 shadow-[0px_4px_30px_0px_rgba(0,0,0,0.08)]"
                     >
-                      {/* ICON */}
                       <div className="w-[40px] h-[40px] mb-[12px] bg-[#eaf1fb] rounded-[8px] flex items-center justify-center">
                         <span className="material-symbols-outlined text-primary text-[20px]">
                           folder_supervised
                         </span>
                       </div>
 
-                      {/* TEXT */}
                       <p className="text-[13px] text-muted text-center leading-[18px]">
                         Lorem ipsum
                       </p>
@@ -262,23 +263,16 @@ const Dashboard = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="w-full xl:w-[1320px] px-4 xl:px-0 flex flex-col xl:flex-row items-center justify-between gap-[80px]"
         >
-
-          {/* TEXT SIDE */}
           <div className="w-full xl:w-[701px] xl:h-[626px] flex flex-col justify-between">
-
             <div className="w-full xl:w-[701px] xl:h-[536px]">
-
-              {/* TITLE */}
               <h2 className="xl:w-[701px] text-[32px] leading-[40px] font-semibold mb-[16px]">
                 Lorem ipsum <span className="text-primary">Lorem ipsum</span> dolor
               </h2>
 
-              {/* PARA */}
               <p className="xl:w-[601px] text-muted text-[16px] leading-[26px] mb-[32px]">
                 Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis. Habitant elit sapien vestibulum risus vitae donec blandit vel nisi.Lorem ipsum dolor sit amet consectetur.
               </p>
 
-              {/* GRID */}
               <div className="w-full max-w-[582px] xl:w-[582px] grid grid-cols-2 sm:grid-cols-3 gap-[20px]">
 
                 {[1, 2, 3, 4, 5, 6].map((_, i) => (
@@ -302,10 +296,8 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* IMAGE SIDE */}
           <div className="w-full xl:w-[702px] xl:h-[787px] flex justify-center">
 
-            {/* FADE SWITCH IMAGE */}
             <motion.img
               key={isInView ? "phone" : "phone1"}
               src={isInView ? phone : phone1}
@@ -316,17 +308,46 @@ const Dashboard = () => {
             />
 
           </div>
-
         </motion.div>
       </section>
 
       {/* ================= CTA ================= */}
-      < section className="flex justify-center mt-[120px]" >
+      <section className="flex justify-center mt-[120px]">
         <div className="w-full xl:w-[1320px] px-4 xl:px-0">
-          <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-light)] rounded-[24px] xl:h-[261px] flex flex-col xl:flex-row items-center justify-between px-[48px] py-[32px]">
+          <div className="relative overflow-hidden bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-light)] rounded-[24px] xl:h-[261px] flex flex-col xl:flex-row items-center justify-between px-[48px] py-[32px]">
 
-            <img src={image} className="w-[143px] h-[165px] object-contain" />
-            <h3 className="w-full xl:w-[849px] text-white text-[40px] leading-[48px] font-medium">
+            <div
+              className="absolute left-[-180px] top-1/2 -translate-y-1/2 w-[489px] h-[451px] opacity-100"
+              style={{
+                transform: "translateY(-50%) rotate(-110.63deg)",
+                backgroundImage:
+                  "linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px)",
+                backgroundSize: "40px 40px"
+              }}
+            />
+
+            <div
+              className="absolute right-[-180px] top-1/2 -translate-y-1/2 w-[489px] h-[451px] opacity-100"
+              style={{
+                transform: "translateY(-50%) rotate(-69.37deg)",
+                backgroundImage:
+                  "linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px)",
+                backgroundSize: "40px 40px"
+              }}
+            />
+
+            <div className="relative w-[173px] h-[173px] flex items-center justify-center">
+              <img
+                src={cta_background}
+                className="absolute w-[171px] h-[173px] object-contain"
+              />
+              <img
+                src={cta}
+                className="relative w-[143px] h-[165px] object-contain z-10"
+              />
+            </div>
+
+            <h3 className="w-full xl:max-w-[849px] text-white text-[40px] leading-[48px] font-medium text-center xl:text-left">
               Get your application developed by our certified experts today!
             </h3>
 
@@ -336,7 +357,7 @@ const Dashboard = () => {
 
           </div>
         </div>
-      </section >
+      </section>
 
       {/* ================= FOOTER ================= */}
       < footer className="flex justify-center mt-[100px]" >

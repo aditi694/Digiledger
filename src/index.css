@@ -3,20 +3,29 @@
 @tailwind utilities;
 
 :root {
-    /* PRIMARY */
     --color-primary: #2F6FED;
     --color-primary-light: #4A8BFF;
 
-    /* TEXT */
     --color-text-main: #08060D;
     --color-text-muted: #6B6375;
 
-    /* BACKGROUNDS */
     --color-bg-light: #F3F6F9;
     --color-bg-soft: rgba(69, 140, 250, 0.1);
 
-    /* BASIC */
     --color-white: #ffffff;
+}
+
+.dark {
+    --color-primary: #4A8BFF;
+    --color-primary-light: #6EA3FF;
+
+    --color-text-main: #F5F5F5;
+    --color-text-muted: #A1A1AA;
+
+    --color-bg-light: #111827;
+    --color-bg-soft: rgba(255, 255, 255, 0.05);
+
+    --color-white: #1F2937;
 }
 
 @layer components {
