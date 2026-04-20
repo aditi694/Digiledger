@@ -20,6 +20,13 @@ const Dashboard = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { margin: "-100px" });
 
+  const [darkMode, setDarkMode] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
   React.useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 600) {
@@ -31,39 +38,60 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-x-hidden bg-white-custom font-sans text-main">
+    <div className="w-full overflow-x-hidden bg-white-custom font-sans text-main transition-colors duration-300">
 
       {/* ================= NAVBAR ================= */}
-      <nav className="w-full h-[95px] flex items-center justify-center border-b border-gray-100 sticky top-0 bg-white-custom z-50">
+      <nav className="w-full h-[95px] flex items-center justify-center border-b border-light sticky top-0 bg-white-custom transition-colors duration-300 z-50">
         <div className="w-full xl:w-[1320px] px-4 xl:px-0 flex items-center justify-between">
 
-          <img
-            src={logo}
-            alt="DigiLedger"
-            className="w-[105px] h-[29px] object-contain"
-          />
+          <img src={logo} className="w-[105px] h-[29px]" />
 
           <ul className="hidden lg:flex gap-[48px] text-[16px] text-muted">
-            <li className="cursor-pointer">Dummy Text</li>
-            <li className="cursor-pointer">Dummy Text</li>
-            <li className="cursor-pointer">Dummy Text</li>
-            <li className="cursor-pointer">Dummy Text</li>
-            <li className="cursor-pointer">Dummy Text</li>
+            <li>Dummy Text</li>
+            <li>Dummy Text</li>
+            <li>Dummy Text</li>
+            <li>Dummy Text</li>
+            <li>Dummy Text</li>
           </ul>
 
-          <div className="flex items-center gap-[20px]">
-            <img
-              src={search}
-              alt="Search"
-              className="w-[19.14px] h-[19.14px] object-contain cursor-pointer"
-            />
-            <button className="h-[35px] px-[16px] rounded-[6px] text-white text-[14px] font-medium flex items-center justify-center bg-primary">
+          <div className="flex items-center gap-[16px]">
+
+            {/*DARK MODE */}
+            <button onClick={() => setDarkMode(!darkMode)} className="text-[20px]">
+              {darkMode ? "☀️" : "🌙"}
+            </button>
+
+            <img src={search} className="w-[19px] h-[19px]" />
+
+            <button className="hidden lg:flex h-[35px] px-[16px] rounded-[6px] text-white text-[14px] bg-primary items-center">
               Get in Touch
             </button>
-          </div>
 
+            {/* HAMBURGER */}
+            <button
+              className="lg:hidden text-2xl"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? "✕" : "☰"}
+            </button>
+
+          </div>
         </div>
       </nav>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="lg:hidden w-full bg-white-custom shadow-md flex flex-col items-center gap-6 py-6 text-muted transition-colors duration-300">
+          <span>Dummy Text</span>
+          <span>Dummy Text</span>
+          <span>Dummy Text</span>
+          <span>Dummy Text</span>
+
+          <button className="h-[40px] px-[20px] rounded-[6px] bg-primary text-white">
+            Get in Touch
+          </button>
+        </div>
+      )}
 
       {/* ================= HERO ================= */}
       <section className="flex justify-center pt-[32px] pb-[48px]">
@@ -160,7 +188,7 @@ const Dashboard = () => {
             {[1, 2, 3, 4].map((_, i) => (
               <div
                 key={i}
-                className="w-[247px] min-h-[182px] bg-white-custom rounded-[18px] p-[20px] shadow-[0px_4px_30px_0px_rgba(0,0,0,0.08)] flex flex-col items-center text-center"
+                className="w-[247px] min-h-[182px] bg-white-custom rounded-[18px] p-[20px] shadow-soft flex flex-col items-center text-center"
               >
                 <div className="w-[44px] h-[44px] bg-[#eaf1fb] rounded-[10px] flex items-center justify-center mb-[12px]">
                   <span className="material-symbols-outlined text-primary text-[22px]">
@@ -233,7 +261,7 @@ const Dashboard = () => {
                     <div
                       key={i}
                       className="w-[130px] h-[134px] bg-white-custom rounded-[12px] p-[16px] flex flex-col items-center justify-center 
-                shadow-[0px_4px_30px_0px_rgba(0,0,0,0.08)]"
+                shadow-soft"
                     >
                       <div className="w-[40px] h-[40px] mb-[12px] bg-[#eaf1fb] rounded-[8px] flex items-center justify-center">
                         <span className="material-symbols-outlined text-primary text-[20px]">
@@ -278,7 +306,7 @@ const Dashboard = () => {
                 {[1, 2, 3, 4, 5, 6].map((_, i) => (
                   <div
                     key={i}
-                    className="w-full xl:w-[175px] h-[148px] bg-white-custom rounded-[12px] flex flex-col items-center justify-center shadow-[0px_4px_30px_0px_rgba(0,0,0,0.08)]"
+                    className="w-full xl:w-[175px] h-[148px] bg-white-custom rounded-[12px] flex flex-col items-center justify-center shadow-soft"
                   >
                     <div className="w-[54px] h-[54px] mb-[12px] bg-[#eaf1fb] rounded-[8px] flex items-center justify-center">
                       <span className="material-symbols-outlined text-primary text-[22px]">
