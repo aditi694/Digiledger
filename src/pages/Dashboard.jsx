@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
 import keyfeature from "../assets/keyfeature.png";
 import laptop1 from "../assets/laptop1.png";
@@ -14,6 +14,7 @@ import cta from "../assets/cta.png";
 import cta_background from "../assets/cta_back.png";
 import logo from "../assets/logo.png";
 import search from "../assets/search.png";
+import { Twirl as Hamburger } from 'hamburger-react';
 
 const Dashboard = () => {
   const [showFeature, setShowFeature] = React.useState(false);
@@ -56,8 +57,10 @@ const Dashboard = () => {
 
           <div className="flex items-center gap-[16px]">
 
-            {/*DARK MODE */}
-            <button onClick={() => setDarkMode(!darkMode)} className="text-[20px]">
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="text-[20px]"
+            >
               {darkMode ? "☀️" : "🌙"}
             </button>
 
@@ -67,31 +70,86 @@ const Dashboard = () => {
               Get in Touch
             </button>
 
-            {/* HAMBURGER */}
-            <button
-              className="lg:hidden text-2xl"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? "✕" : "☰"}
-            </button>
+            <div className="lg:hidden z-[1000] flex items-center justify-center w-[44px] h-[44px] rounded-[10px] bg-light hover:bg-gray-200 dark:bg-[#1F2937] dark:hover:bg-[#374151] transition-all duration-300 shadow-sm">
+              <Hamburger
+                toggled={isMenuOpen}
+                toggle={setIsMenuOpen}
+                size={20}
+                duration={0.4}
+                color={darkMode ? "#ffffff" : "#111827"}
+                rounded
+              />
+            </div>
 
           </div>
         </div>
       </nav>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-[999]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
 
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden w-full bg-white-custom shadow-md flex flex-col items-center gap-6 py-6 text-muted transition-colors duration-300">
-          <span>Dummy Text</span>
-          <span>Dummy Text</span>
-          <span>Dummy Text</span>
-          <span>Dummy Text</span>
+            <motion.div
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              onClick={() => setIsMenuOpen(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
 
-          <button className="h-[40px] px-[20px] rounded-[6px] bg-primary text-white">
-            Get in Touch
-          </button>
-        </div>
-      )}
+            <motion.div
+              className="absolute top-0 left-0 h-full w-[280px] bg-white-custom shadow-xl"
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", stiffness: 120, damping: 20 }}
+            >
+              <motion.div
+                className="flex flex-col gap-6 p-6 text-muted"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  visible: {
+                    transition: { staggerChildren: 0.1 }
+                  }
+                }}
+              >
+
+                {["Dummy Text", "Dummy Text", "Dummy Text", "Dummy Text"].map((item, i) => (
+                  <motion.span
+                    key={i}
+                    className="cursor-pointer"
+                    onClick={() => setIsMenuOpen(false)}
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                  >
+                    {item}
+                  </motion.span>
+                ))}
+
+                <motion.button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="mt-4 h-[40px] px-[20px] rounded-[6px] bg-primary text-white"
+                  variants={{
+                    hidden: { opacity: 0, x: -20 },
+                    visible: { opacity: 1, x: 0 }
+                  }}
+                >
+                  Get in Touch
+                </motion.button>
+
+              </motion.div>
+            </motion.div>
+
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ================= HERO ================= */}
       <section className="flex justify-center pt-[32px] pb-[48px]">
