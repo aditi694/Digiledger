@@ -7,18 +7,20 @@ import phone from "../assets/phone.png";
 import sidephone from "../assets/sidephone.png";
 import appstore from "../assets/appstore.png";
 import playstore from "../assets/playstore.png";
-import phone1 from "../assets/phone1.png";
 import keyfeature1 from "../assets/keyfeature1.png";
 import cta from "../assets/cta.png";
 import cta_background from "../assets/cta_back.png";
-import logo from "../assets/logo.png";
-import search from "../assets/search.png";
-import { Twirl as Hamburger } from 'hamburger-react';
 import arrow1 from "../assets/arrow1.png";
 import arrow2 from "../assets/arrow2.png";
 import arrow3 from "../assets/arrow3.png";
 import arrow4 from "../assets/arrow4.png";
 import keyphone from "../assets/keyphone.png";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Button from "../components/Button";
+import FeatureCard from "../components/FeatureCard";
+import MiniCard from "../components/MiniCard";
+import GridCard from "../components/GridCard";
 
 const Dashboard = () => {
   const sectionRef = useRef(null);
@@ -28,7 +30,36 @@ const Dashboard = () => {
   });
 
   const [darkMode, setDarkMode] = React.useState(false);
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const features = [
+    {
+      title: "Lorem ipsum dolor",
+      description: "Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolo fg",
+    },
+    {
+      title: "Lorem ipsum dolor",
+      description: "Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolo fg",
+    },
+    {
+      title: "Lorem ipsum dolor",
+      description: "Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolo fg",
+    },
+    {
+      title: "Lorem ipsum dolor",
+      description: "Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolo fg",
+    },
+  ];
+
+  const miniCards = ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum"];
+
+  const gridCards = [
+    "Lorem ipsum",
+    "Lorem ipsum",
+    "Lorem ipsum",
+    "Lorem ipsum",
+    "Lorem ipsum",
+    "Lorem ipsum",
+  ];
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
@@ -49,115 +80,9 @@ const Dashboard = () => {
   return (
     <div className="w-full overflow-x-hidden bg-white-custom font-sans text-main transition-colors duration-300">
 
-      {/* ================= NAVBAR ================= */}
-      <nav className="w-full h-[95px] flex items-center justify-center sticky top-0 bg-white-custom transition-colors duration-300 z-50">
-        <div className="w-full xl:w-[1320px] px-4 xl:px-0 flex items-center justify-between">
+      {/* ================= N AVBAR ================= */}
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-          <img src={logo} className="w-[105px] h-[29px]" />
-
-          <ul className="hidden lg:flex gap-[48px] text-[16px] text-muted">
-            <li>Dummy Text</li>
-            <li>Dummy Text</li>
-            <li>Dummy Text</li>
-            <li>Dummy Text</li>
-            <li>Dummy Text</li>
-          </ul>
-
-          <div className="flex items-center gap-[16px]">
-
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="text-[20px]"
-            >
-              {darkMode ? "☀️" : "🌙"}
-            </button>
-
-            <img src={search} className="w-[19px] h-[19px]" />
-
-            <button className="hidden lg:flex h-[35px] px-[16px] rounded-[6px] text-white text-[14px] bg-primary items-center">
-              Get in Touch
-            </button>
-
-            <div className="lg:hidden z-[1000] flex items-center justify-center w-[44px] h-[44px] rounded-[10px] bg-light hover:bg-gray-200 dark:bg-[#1F2937] dark:hover:bg-[#374151] transition-all duration-300 shadow-sm">
-              <Hamburger
-                toggled={isMenuOpen}
-                toggle={setIsMenuOpen}
-                size={20}
-                duration={0.4}
-                color={darkMode ? "#ffffff" : "#111827"}
-                rounded
-              />
-            </div>
-
-          </div>
-        </div>
-      </nav>
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-[999]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-
-            <motion.div
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-              onClick={() => setIsMenuOpen(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            />
-
-            <motion.div
-              className="absolute top-0 left-0 h-full w-[280px] bg-white-custom shadow-xl"
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", stiffness: 120, damping: 20 }}
-            >
-              <motion.div
-                className="flex flex-col gap-6 p-6 text-muted"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  visible: {
-                    transition: { staggerChildren: 0.1 }
-                  }
-                }}
-              >
-
-                {["Dummy Text", "Dummy Text", "Dummy Text", "Dummy Text"].map((item, i) => (
-                  <motion.span
-                    key={i}
-                    className="cursor-pointer"
-                    onClick={() => setIsMenuOpen(false)}
-                    variants={{
-                      hidden: { opacity: 0, x: -20 },
-                      visible: { opacity: 1, x: 0 }
-                    }}
-                  >
-                    {item}
-                  </motion.span>
-                ))}
-
-                <motion.button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="mt-4 h-[40px] px-[20px] rounded-[6px] bg-primary text-white"
-                  variants={{
-                    hidden: { opacity: 0, x: -20 },
-                    visible: { opacity: 1, x: 0 }
-                  }}
-                >
-                  Get in Touch
-                </motion.button>
-
-              </motion.div>
-            </motion.div>
-
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* ================= HERO ================= */}
       <section className="flex justify-center pt-[32px] pb-[48px]">
@@ -185,9 +110,9 @@ const Dashboard = () => {
               Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
             </p>
 
-            <button className="h-[48px] w-[140px] rounded-[8px] bg-primary text-white text-[15px] font-medium">
-              Get in Touch
-            </button>
+            <div className="flex justify-start">
+              <Button>Get in Touch</Button>
+            </div>
 
           </motion.div>
 
@@ -250,38 +175,13 @@ const Dashboard = () => {
           />
 
           <div className="w-full xl:w-[1138px] flex flex-wrap xl:flex-nowrap justify-center gap-[20px]">
-            {[1, 2, 3, 4].map((_, i) => (
-              <div
+            {features.map((item, i) => (
+              <FeatureCard
                 key={i}
-                className="w-[247px] h-[182.75px] bg-white-custom rounded-[18px] p-[16px] flex flex-col items-center text-center gap-[16.8px] shadow-md"
-              >
-
-                {/* ICON */}
-                <div className="w-[42.08px] h-[42.08px] bg-icon rounded-[10px] flex items-center justify-center">
-                  <span
-                    className="material-symbols-outlined icon-primary"
-                    style={{
-                      fontSize: "30px",
-                      lineHeight: "30px"
-                    }}
-                  >
-                    folder_supervised
-                  </span>
-                </div>
-
-                {/* TITLE */}
-                <h3 className="w-[180px] text-[20px] font-semibold leading-[32px] text-primary">
-                  Lorem ipsum dolor
-                </h3>
-
-                {/* TEXT */}
-                <p className="w-[215px] text-[14px] leading-[20px] text-muted">
-                  Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolo fg
-                </p>
-
-              </div>
+                title={item.title}
+                description={item.description}
+              />
             ))}
-
           </div>
         </div>
       </section >
@@ -447,30 +347,9 @@ const Dashboard = () => {
                 </div>
 
                 <div className="w-full xl:w-[496px] xl:h-[134px] flex gap-[20px] justify-center xl:justify-start">
-
-                  {[1, 2, 3].map((_, i) => (
-                    <div
-                      key={i}
-                      className="w-[158px] h-[134px] bg-white-custom rounded-[11.7px] p-[9px] flex flex-col items-center justify-center gap-[10.9px] shadow-sm"
-                    >
-                      <div className="w-[48.6px] h-[48.6px] bg-icon rounded-[10px] flex items-center justify-center">
-                        <span
-                          className="material-symbols-outlined icon-primary"
-                          style={{
-                            fontSize: "34px",
-                            lineHeight: "34px"
-                          }}
-                        >
-                          folder_supervised
-                        </span>
-                      </div>
-
-                      <p className="text-[13px] text-muted text-center leading-[18px]">
-                        Lorem ipsum
-                      </p>
-                    </div>
+                  {miniCards.map((item, i) => (
+                    <MiniCard key={i} title={item} />
                   ))}
-
                 </div>
               </div>
             </div>
@@ -498,30 +377,9 @@ const Dashboard = () => {
               </p>
 
               <div className="w-full max-w-[582px] xl:w-[582px] grid grid-cols-2 sm:grid-cols-3 gap-[20px]">
-
-                {[1, 2, 3, 4, 5, 6].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-[176px] h-[149px] bg-white-custom rounded-[13px] flex flex-col items-center justify-center gap-[12px] p-[12px] shadow-md"
-                  >
-                    <div className="w-[54px] h-[54px] bg-icon rounded-[12px] flex items-center justify-center">
-                      <span
-                        className="material-symbols-outlined icon-primary"
-                        style={{
-                          fontSize: "29px",
-                          lineHeight: "29px"
-                        }}
-                      >
-                        folder_supervised
-                      </span>
-                    </div>
-
-                    <p className="w-[151px] text-[13px] text-muted text-center leading-[18px]">
-                      Lorem ipsum
-                    </p>
-                  </div>
+                {gridCards.map((item, i) => (
+                  <GridCard key={i} title={item} />
                 ))}
-
               </div>
             </div>
           </div>
@@ -586,9 +444,9 @@ const Dashboard = () => {
                 Get your application developed by our certified experts today!
               </h3>
 
-              <button className="h-[54px] px-[28px] rounded-[8px] bg-white-custom text-primary font-medium relative z-10">
+              <Button variant="secondary" size="lg">
                 Schedule a Call
-              </button>
+              </Button>
 
             </div>
 
@@ -597,36 +455,7 @@ const Dashboard = () => {
       </section>
 
       {/* ================= FOOTER ================= */}
-      < footer className="flex justify-center mt-[100px]" >
-        <div className="w-full xl:w-[1320px] px-4 xl:px-0 text-center">
-
-          <h2 className="text-[40px] leading-[48px] tracking-[-0.5px] font-semibold mb-[16px]">
-            Your <span className="text-primary">Perfect Experience</span>, Just a Tap Away!
-          </h2>
-
-          <p className="max-w-[658px] mx-auto text-muted text-[20px] leading-[28px] mb-[32px]">
-            Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
-          </p>
-
-          <div className="flex justify-center gap-[12px]">
-            <img src={playstore} className="w-[173px] h-[52px] object-contain" />
-            <img src={appstore} className="w-[173px] h-[52px] object-contain" />
-          </div>
-        </div>
-      </footer >
-
-      {/* ================= BOTTOM ================= */}
-      < div className="flex justify-center border-t mt-[40px]" >
-        <div className="w-full xl:w-[1320px] px-4 xl:px-0 flex flex-col sm:flex-row justify-between h-[40px] items-center text-muted text-[14px]">
-
-          <div>Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor</div>
-          <div className="flex gap-[16px]">
-            <span>f</span>
-            <span>𝕏</span>
-            <span>▶</span>
-          </div>
-        </div>
-      </div >
+      <Footer />
 
     </div >
   );
