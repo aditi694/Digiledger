@@ -2,32 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================= THEME ================= */
 :root {
     --color-primary: #2F6FED;
     --color-primary-light: #4A8BFF;
 
-    --color-text-main: #08060D;
+    --color-text-main: #000000;
     --color-text-muted: #6B6375;
+    --color-text-soft: #555555;
+    --color-text-heading: #333333;
 
     --color-bg-light: #F3F6F9;
     --color-bg-soft: rgba(69, 140, 250, 0.1);
 
     --color-white: #ffffff;
+    --color-border-light: #e5e7eb;
+
+    --color-icon-bg: rgba(29, 97, 231, 0.1);
+    --color-icon: #1D61E7;
 }
 
+/* ================= DARK ================= */
 .dark {
     --color-primary: #4A8BFF;
     --color-primary-light: #6EA3FF;
 
     --color-text-main: #F5F5F5;
     --color-text-muted: #A1A1AA;
+    --color-text-soft: #D1D5DB;
+    --color-text-heading: #E5E7EB;
 
     --color-bg-light: #111827;
     --color-bg-soft: rgba(255, 255, 255, 0.05);
 
     --color-white: #1F2937;
+    --color-border-light: #374151;
+
+    --color-icon-bg: rgba(255, 255, 255, 0.08);
+    --color-icon: #60A5FA;
 }
 
+/* ================= BASE ================= */
+@layer base {
+    body {
+        @apply bg-white-custom text-main;
+        font-family: ui-sans-serif, system-ui;
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: var(--color-text-heading);
+    }
+
+    p {
+        color: var(--color-text-muted);
+    }
+}
+
+/* ================= COMPONENTS ================= */
 @layer components {
 
     /* TEXT */
@@ -43,29 +76,72 @@
         color: var(--color-text-muted);
     }
 
-    /* BACKGROUND */
-    .bg-primary {
-        background-color: var(--color-primary);
+    .text-soft {
+        color: var(--color-text-soft);
     }
 
-    .bg-primary-light {
-        background-color: var(--color-primary-light);
+    .text-heading {
+        color: var(--color-text-heading);
+    }
+
+    /* BG */
+    .bg-primary {
+        background: var(--color-primary);
     }
 
     .bg-light {
-        background-color: var(--color-bg-light);
+        background: var(--color-bg-light);
     }
 
     .bg-soft {
-        background-color: var(--color-bg-soft);
+        background: var(--color-bg-soft);
     }
 
     .bg-white-custom {
-        background-color: var(--color-white);
+        background: var(--color-white);
+    }
+
+    .bg-icon {
+        background: var(--color-icon-bg);
     }
 
     /* BORDER */
     .border-light {
-        border-color: #e5e7eb;
+        border-color: var(--color-border-light);
+    }
+
+    /* ICON */
+    .icon-primary {
+        color: var(--color-icon);
+    }
+}
+
+@layer utilities {
+    .container-custom {
+        @apply w-full xl:max-w-[1320px] mx-auto px-4 xl:px-0;
+    }
+
+    .shadow-sm {
+        box-shadow: 0px 3.6px 27px rgba(0, 0, 0, 0.1);
+    }
+
+    .shadow-md {
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .shadow-lg {
+        box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .dark .shadow-sm {
+        box-shadow: 0px 3.6px 27px rgba(0, 0, 0, 0.5);
+    }
+
+    .dark .shadow-md {
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .dark .shadow-lg {
+        box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.8);
     }
 }

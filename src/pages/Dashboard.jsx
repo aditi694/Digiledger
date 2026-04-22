@@ -1,7 +1,6 @@
 import React from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef } from "react";
-import keyfeature from "../assets/keyfeature.png";
+import { useEffect, useRef } from "react";
 import laptop1 from "../assets/laptop1.png";
 import laptop2 from "../assets/laptop2.png";
 import phone from "../assets/phone.png";
@@ -22,32 +21,36 @@ import arrow4 from "../assets/arrow4.png";
 import keyphone from "../assets/keyphone.png";
 
 const Dashboard = () => {
-  const [showFeature, setShowFeature] = React.useState(false);
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { margin: "-100px" });
+  const isInView = useInView(sectionRef, {
+    once: true,
+    margin: "-50px"
+  });
 
   const [darkMode, setDarkMode] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  React.useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 600) {
-        setShowFeature(true);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (saved) {
+      setDarkMode(saved === "dark");
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setDarkMode(prefersDark);
+    }
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
   return (
     <div className="w-full overflow-x-hidden bg-white-custom font-sans text-main transition-colors duration-300">
 
       {/* ================= NAVBAR ================= */}
-      <nav className="w-full h-[95px] flex items-center justify-center border-b border-light sticky top-0 bg-white-custom transition-colors duration-300 z-50">
+      <nav className="w-full h-[95px] flex items-center justify-center sticky top-0 bg-white-custom transition-colors duration-300 z-50">
         <div className="w-full xl:w-[1320px] px-4 xl:px-0 flex items-center justify-between">
 
           <img src={logo} className="w-[105px] h-[29px]" />
@@ -207,7 +210,7 @@ const Dashboard = () => {
 
       {/* ================= STATS ================= */}
       < section className="flex justify-center mt-[120px]" >
-        <div className="w-full xl:w-[1320px] px-4 xl:px-0">
+        <div className="container-custom">
           <div className="bg-soft rounded-[30px] xl:h-[239px] flex flex-wrap xl:flex-nowrap items-center justify-between px-[50px] py-[30px] gap-[40px] xl:gap-[70px]">
 
             {[1, 2, 3, 4].map((_, i) => (
@@ -250,16 +253,13 @@ const Dashboard = () => {
             {[1, 2, 3, 4].map((_, i) => (
               <div
                 key={i}
-                className="w-[247px] h-[182.75px] bg-white-custom rounded-[18px] p-[16px] flex flex-col items-center text-center gap-[16.8px]"
-                style={{
-                  boxShadow: "0px 4px 30px rgba(0,0,0,0.1)"
-                }}
+                className="w-[247px] h-[182.75px] bg-white-custom rounded-[18px] p-[16px] flex flex-col items-center text-center gap-[16.8px] shadow-md"
               >
 
                 {/* ICON */}
-                <div className="w-[42.08px] h-[42.08px] bg-[#1D61E71A] rounded-[10px] flex items-center justify-center">
+                <div className="w-[42.08px] h-[42.08px] bg-icon rounded-[10px] flex items-center justify-center">
                   <span
-                    className="material-symbols-outlined text-[#1D61E7]"
+                    className="material-symbols-outlined icon-primary"
                     style={{
                       fontSize: "30px",
                       lineHeight: "30px"
@@ -287,14 +287,14 @@ const Dashboard = () => {
       </section >
       {/* ================= KEY FEATURES ================= */}
       <section className="flex justify-center mt-[120px]">
-        <div className="w-full xl:w-[1320px] px-4 xl:px-0">
+        <div className="container-custom">
 
           <div className="relative w-full xl:h-[789px] rounded-[24px] overflow-hidden">
 
             {/* BACKGROUND */}
             <img
               src={keyfeature1}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover dark:brightness-50 dark:contrast-125"
             />
 
             {/* PHONE*/}
@@ -319,10 +319,10 @@ const Dashboard = () => {
               transition={{ delay: 0.6 }}
               className="hidden xl:block absolute top-[144px] left-[38px] w-[390px]"
             >
-              <h3 className="text-[20px] font-medium text-[#333] mb-[8px]">
+              <h3 className="text-[20px] font-medium text-heading mb-[8px]">
                 Lorem ipsum
               </h3>
-              <p className="text-[20px] leading-[30px] text-[#555]">
+              <p className="text-[20px] leading-[30px] text-soft">
                 Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
               </p>
             </motion.div>
@@ -334,10 +334,10 @@ const Dashboard = () => {
               transition={{ delay: 0.7 }}
               className="hidden xl:block absolute top-[144px] right-[38px] w-[374px] text-right"
             >
-              <h3 className="text-[20px] font-medium text-[#333] mb-[8px]">
+              <h3 className="text-[20px] font-medium text-heading mb-[8px]">
                 Lorem ipsum
               </h3>
-              <p className="text-[20px] leading-[30px] text-[#555]">
+              <p className="text-[20px] leading-[30px] text-soft">
                 Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
               </p>
             </motion.div>
@@ -349,10 +349,10 @@ const Dashboard = () => {
               transition={{ delay: 0.8 }}
               className="hidden xl:block absolute bottom-[120px] right-[38px] w-[390px] text-right"
             >
-              <h3 className="text-[20px] font-medium text-[#333] mb-[8px]">
+              <h3 className="text-[20px] font-medium text-heading mb-[8px]">
                 Lorem ipsum
               </h3>
-              <p className="text-[20px] leading-[30px] text-[#555]">
+              <p className="text-[20px] leading-[30px] text-soft">
                 Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
               </p>
             </motion.div>
@@ -364,10 +364,10 @@ const Dashboard = () => {
               transition={{ delay: 0.9 }}
               className="hidden xl:block absolute bottom-[120px] left-[38px] w-[390px]"
             >
-              <h3 className="text-[20px] font-medium text-[#333] mb-[8px]">
+              <h3 className="text-[20px] font-medium text-heading mb-[8px]">
                 Lorem ipsum
               </h3>
-              <p className="text-[20px] leading-[30px] text-[#555]">
+              <p className="text-[20px] leading-[30px] text-soft">
                 Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
               </p>
             </motion.div>
@@ -420,10 +420,9 @@ const Dashboard = () => {
 
       {/* ================= SHOWCASE 1 ================= */}
       < section className="flex justify-center mt-[120px]" >
-        <div className="w-full xl:w-[1320px] px-4 xl:px-0">
+        <div className="container-custom">
 
-          <div className="bg-light rounded-[24px] xl:h-[642px] flex items-center justify-center">
-
+          <div className="bg-light rounded-[24px] min-h-[620px] md:min-h-[700px] xl:h-[642px] flex items-center justify-center py-[40px]">
             <div className="w-full xl:w-[1257px] xl:h-[434px] flex flex-col xl:flex-row items-center justify-between gap-[60px]">
 
               <div className="w-full xl:w-[708px] xl:h-[434px] flex justify-center">
@@ -452,14 +451,11 @@ const Dashboard = () => {
                   {[1, 2, 3].map((_, i) => (
                     <div
                       key={i}
-                      className="w-[158px] h-[134px] bg-white-custom rounded-[11.7px] p-[9px] flex flex-col items-center justify-center gap-[10.9px]"
-                      style={{
-                        boxShadow: "0px 3.6px 27px rgba(0,0,0,0.1)"
-                      }}
+                      className="w-[158px] h-[134px] bg-white-custom rounded-[11.7px] p-[9px] flex flex-col items-center justify-center gap-[10.9px] shadow-sm"
                     >
-                      <div className="w-[48.6px] h-[48.6px] bg-[#1D61E71A] rounded-[10px] flex items-center justify-center">
+                      <div className="w-[48.6px] h-[48.6px] bg-icon rounded-[10px] flex items-center justify-center">
                         <span
-                          className="material-symbols-outlined text-[#1D61E7]"
+                          className="material-symbols-outlined icon-primary"
                           style={{
                             fontSize: "34px",
                             lineHeight: "34px"
@@ -506,14 +502,11 @@ const Dashboard = () => {
                 {[1, 2, 3, 4, 5, 6].map((_, i) => (
                   <div
                     key={i}
-                    className="w-[176px] h-[149px] bg-white-custom rounded-[13px] flex flex-col items-center justify-center gap-[12px] p-[12px]"
-                    style={{
-                      boxShadow: "0px 4px 30px rgba(0,0,0,0.1)"
-                    }}
+                    className="w-[176px] h-[149px] bg-white-custom rounded-[13px] flex flex-col items-center justify-center gap-[12px] p-[12px] shadow-md"
                   >
-                    <div className="w-[54px] h-[54px] bg-[#1D61E71A] rounded-[12px] flex items-center justify-center">
+                    <div className="w-[54px] h-[54px] bg-icon rounded-[12px] flex items-center justify-center">
                       <span
-                        className="material-symbols-outlined text-[#1D61E7]"
+                        className="material-symbols-outlined icon-primary"
                         style={{
                           fontSize: "29px",
                           lineHeight: "29px"
@@ -536,11 +529,11 @@ const Dashboard = () => {
           <div className="w-full xl:w-[702px] xl:h-[787px] flex justify-center">
 
             <motion.img
-              key={isInView ? "phone" : "phone1"}
-              src={isInView ? phone : phone1}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+              src={phone}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="w-full max-w-[702px] xl:h-[787px] object-contain"
             />
 
@@ -550,7 +543,7 @@ const Dashboard = () => {
 
       {/* ================= CTA ================= */}
       <section className="flex justify-center mt-[120px]">
-        <div className="w-full xl:w-[1320px] px-4 xl:px-0">
+        <div className="container-custom">
           <div className="relative overflow-hidden bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-light)] rounded-[24px] xl:h-[261px] flex flex-col xl:flex-row items-center justify-between px-[48px] py-[32px]">
 
             {/* LEFT GRID */}
