@@ -15,6 +15,11 @@ import cta_background from "../assets/cta_back.png";
 import logo from "../assets/logo.png";
 import search from "../assets/search.png";
 import { Twirl as Hamburger } from 'hamburger-react';
+import arrow1 from "../assets/arrow1.png";
+import arrow2 from "../assets/arrow2.png";
+import arrow3 from "../assets/arrow3.png";
+import arrow4 from "../assets/arrow4.png";
+import keyphone from "../assets/keyphone.png";
 
 const Dashboard = () => {
   const [showFeature, setShowFeature] = React.useState(false);
@@ -280,24 +285,138 @@ const Dashboard = () => {
           </div>
         </div>
       </section >
-
       {/* ================= KEY FEATURES ================= */}
-      < section className="flex justify-center mt-[120px]" >
-        <div className="w-full xl:w-[1320px] px-4 xl:px-0 flex justify-center">
-          <motion.img
-            src={showFeature ? keyfeature : keyfeature1}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              delay: 0.8,
-              duration: 0.6,
-              ease: "easeOut"
-            }}
-            className="w-full xl:w-[1320px]"
-          />
+      <section className="flex justify-center mt-[120px]">
+        <div className="w-full xl:w-[1320px] px-4 xl:px-0">
+
+          <div className="relative w-full xl:h-[789px] rounded-[24px] overflow-hidden">
+
+            {/* BACKGROUND */}
+            <img
+              src={keyfeature1}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* PHONE*/}
+            <motion.img
+              src={keyphone}
+              initial={{ opacity: 0, scale: 0.85, y: 60 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="
+                  absolute
+                  xl:w-[730px]
+                  xl:top-[154px]
+                  xl:left-[262px]
+                   z-20
+              "
+            />
+
+            {/* ================= LEFT TOP ================= */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+              className="hidden xl:block absolute top-[144px] left-[38px] w-[390px]"
+            >
+              <h3 className="text-[20px] font-medium text-[#333] mb-[8px]">
+                Lorem ipsum
+              </h3>
+              <p className="text-[20px] leading-[30px] text-[#555]">
+                Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
+              </p>
+            </motion.div>
+
+            {/* ================= RIGHT TOP ================= */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7 }}
+              className="hidden xl:block absolute top-[144px] right-[38px] w-[374px] text-right"
+            >
+              <h3 className="text-[20px] font-medium text-[#333] mb-[8px]">
+                Lorem ipsum
+              </h3>
+              <p className="text-[20px] leading-[30px] text-[#555]">
+                Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
+              </p>
+            </motion.div>
+
+            {/* ================= RIGHT BOTTOM ================= */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8 }}
+              className="hidden xl:block absolute bottom-[120px] right-[38px] w-[390px] text-right"
+            >
+              <h3 className="text-[20px] font-medium text-[#333] mb-[8px]">
+                Lorem ipsum
+              </h3>
+              <p className="text-[20px] leading-[30px] text-[#555]">
+                Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
+              </p>
+            </motion.div>
+
+            {/* ================= LEFT BOTTOM ================= */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.9 }}
+              className="hidden xl:block absolute bottom-[120px] left-[38px] w-[390px]"
+            >
+              <h3 className="text-[20px] font-medium text-[#333] mb-[8px]">
+                Lorem ipsum
+              </h3>
+              <p className="text-[20px] leading-[30px] text-[#555]">
+                Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
+              </p>
+            </motion.div>
+
+            {/* ================= ARROWS ================= */}
+            <motion.img
+              src={arrow1}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="hidden xl:block absolute"
+              style={{ top: "211.5px", left: "440.5px", width: "82px" }}
+            />
+
+            <motion.img
+              src={arrow2}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="hidden xl:block absolute"
+              style={{ top: "308.7px", left: "962px", width: "157px" }}
+            />
+
+            <motion.img
+              src={arrow3}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="hidden xl:block absolute"
+              style={{ top: "451px", left: "798px", width: "125px" }}
+            />
+
+            <motion.img
+              src={arrow4}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="hidden xl:block absolute"
+              style={{ top: "393px", left: "229px", width: "110px" }}
+            />
+
+            {/*For Mobile view - only image*/}
+            <div className="xl:hidden flex flex-col items-center gap-6 py-10">
+              <img src={keyphone} className="w-[85%]" />
+            </div>
+
+          </div>
         </div>
-      </section >
+      </section>
 
       {/* ================= SHOWCASE 1 ================= */}
       < section className="flex justify-center mt-[120px]" >
