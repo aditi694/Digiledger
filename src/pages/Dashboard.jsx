@@ -80,7 +80,7 @@ const Dashboard = () => {
   return (
     <div className="w-full overflow-x-hidden bg-white-custom font-sans text-main transition-colors duration-300">
 
-      {/* ================= N AVBAR ================= */}
+      {/* ================= NAVBAR ================= */}
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
 
@@ -88,6 +88,7 @@ const Dashboard = () => {
       <section className="flex justify-center pt-[32px] pb-[48px]">
         <div className="w-full xl:w-[1320px] px-4 xl:px-0 xl:h-[695px] flex flex-col xl:flex-row items-center justify-between gap-[60px]">
 
+          {/* LEFT TEXT */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -107,31 +108,31 @@ const Dashboard = () => {
             </h1>
 
             <p className="xl:w-[500px] text-[20px] leading-[28px] text-muted">
-              Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis.
-            </p>
+              Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis. Habitant elit sapien vestibulum risus vitae donec blandit vel nisi.             </p>
 
             <div className="flex justify-start">
               <Button>Get in Touch</Button>
             </div>
-
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              delay: 0.5,
-              type: "spring",
-              stiffness: 100,
-              damping: 15
-            }}
-            className="w-full xl:w-[820px] flex justify-center"
-          >
-            <img src={laptop1} className="w-full max-w-[820px] object-contain" />
-          </motion.div>
-
+          {/* RIGHT IMAGE */}
+          <div className="w-full xl:w-[820px] flex justify-center">
+            <motion.img
+              src={laptop1}
+              initial={{ opacity: 0, x: -120 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+                delay: 0.2,
+              }}
+              whileHover={{ scale: 1.04 }}
+              className="w-full max-w-[820px] object-contain"
+            />
+          </div>
         </div>
-      </section >
+      </section>
 
       {/* ================= STATS ================= */}
       < section className="flex justify-center mt-[120px]" >
@@ -168,8 +169,9 @@ const Dashboard = () => {
           <motion.img
             src={laptop2}
             initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileInView={{ scale: [1, 1.05, 1] }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="w-full max-w-[1119px] mb-[57px]"
           />
@@ -389,8 +391,10 @@ const Dashboard = () => {
             <motion.img
               src={phone}
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              whileInView={{ y: [0, -20, 0], scale: [1, 1.03, 1] }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6 }}
               className="w-full max-w-[702px] xl:h-[787px] object-contain"
             />

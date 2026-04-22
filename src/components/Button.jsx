@@ -12,7 +12,7 @@ const Button = ({
     let base = "rounded-[8px] font-medium transition-all duration-300 flex items-center justify-center";
 
     let variants = {
-        primary: "bg-primary text-white hover:opacity-90",
+        primary: "bg-primary text-white hover:opacity-90 hover:scale-[1.03]",
         secondary: "bg-white-custom text-primary border border-primary",
     };
 

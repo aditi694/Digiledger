@@ -56,7 +56,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                     <motion.div
                         className="fixed inset-0 z-[999]"
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true, margin: "-100px" }}
                         exit={{ opacity: 0 }}
                     >
 
@@ -64,7 +65,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
                             onClick={() => setIsMenuOpen(false)}
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true, margin: "-100px" }}
                             exit={{ opacity: 0 }}
                         />
 
