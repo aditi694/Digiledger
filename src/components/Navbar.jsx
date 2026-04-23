@@ -105,7 +105,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
                                 <button
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="mt-4 h-[42px] rounded-[8px] bg-primary text-white text-[14px] font-medium"
+                                    className="mt-4 w-[150px] h-[35px] px-[16px] rounded-[8px] bg-primary text-white text-[14px] font-medium"
                                 >
                                     Get in Touch
                                 </button>
