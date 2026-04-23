@@ -335,20 +335,20 @@ const Dashboard = () => {
                 />
               </div>
 
-              <div className="w-full xl:w-[521px] xl:h-[417px] flex flex-col justify-between">
+              <div className="w-full xl:w-[521px] xl:h-[417px] flex flex-col justify-between px-[16px] xl:px-0 ">
 
                 <div>
-                  <h2 className="xl:w-[521px] text-[32px] leading-[40px] font-semibold mb-[16px]">
+                  <h2 className="w-full max-w-[521px] text-[28px] sm:text-[32px] leading-[36px] sm:leading-[40px] font-semibold mb-[16px]">
                     Lorem ipsum{" "}
                     <span className="text-primary">Lorem ipsum</span> dolor Lorem ipsum dolor
                   </h2>
 
-                  <p className="xl:w-[512px] text-muted text-[16px] leading-[24px] mb-[24px]">
-                    Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis. Habitant elit sapien vestibulum risus vitae donec blandit vel nisi.
+                  <p className="w-full max-w-[512px] text-muted text-[14px] sm:text-[16px] leading-[22px] sm:leading-[24px] mb-[24px]">
+                    Lorem ipsum dolor sit amet consectetur. Morbi mauris id quis hac et viverra nulla Ut vivamus purus nunc integer quis. Habitant elit sapien vestibulum risus vitae donec blandit vel nisi. Lorem ipsum dolor sit
                   </p>
                 </div>
 
-                <div className="w-full xl:w-[496px] xl:h-[134px] flex gap-[20px] justify-center xl:justify-start">
+                <div className="w-full xl:w-[496px] xl:h-[134px] flex xl:flex-nowrap flex-wrap justify-center xl:justify-start gap-[16px] sm:gap-[20px] ">
                   {miniCards.map((item, i) => (
                     <MiniCard key={i} title={item} />
                   ))}
